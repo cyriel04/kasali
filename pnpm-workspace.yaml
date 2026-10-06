@@ -1,0 +1,12 @@
+packages:
+    - "apps/*"
+    - "packages/*"
+
+# pnpm blocks dependency install scripts unless you allow them here.
+# esbuild (used by tsx, tsup and vitest) needs its script to fetch its binary.
+# When `pnpm install` stops with ERR_PNPM_IGNORED_BUILDS, add the package it names.
+allowBuilds:
+    esbuild: true
+
+# Lets `pnpm deploy` build a clean backend folder for the Docker image later
+injectWorkspacePackages: true
